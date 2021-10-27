@@ -17,6 +17,21 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
+    //Ruta general de App
+    "paths": {
+      "@core/*": [
+        //ruta de fuente para consultar las rutas de los modulos
+        "src/app/core/*"
+      ], 
+      "@modules/*": [
+        //ruta de fuente para consultar las rutas de los modulos
+        "src/app/modules/*"
+      ],
+      "@shared/*": [
+        //ruta de fuente para consultar las rutas de los modulos
+        "src/app/shared/*"
+      ]
+    },
     "lib": [
       "es2018",
       "dom"
