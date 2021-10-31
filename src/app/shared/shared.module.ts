@@ -18,6 +18,13 @@ import { HeaderUserComponent } from './components/header-user/header-user.compon
   ],
   imports: [
     CommonModule
+  ],
+  //Permite compartir o exportar los componentes que tiene en su interior en el apartado de declarations con otros
+  //componestes del proyecto
+  exports:[
+    SideBarComponent,
+    MediaPlayerComponent,
+    HeaderUserComponent
   ]
 })
 export class SharedModule { }

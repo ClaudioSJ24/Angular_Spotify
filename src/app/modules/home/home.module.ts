@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { SharedModule } from '@shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    SharedModule//Se utilizan todos los componentes que el modulo ShareModule exporta a otros modulos
   ]
 })
 export class HomeModule { }
