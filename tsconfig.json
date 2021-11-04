@@ -22,7 +22,7 @@
       "@core/*": [
         //ruta de fuente para consultar las rutas de los modulos
         "src/app/core/*"
-      ], 
+      ],
       "@modules/*": [
         //ruta de fuente para consultar las rutas de los modulos
         "src/app/modules/*"
