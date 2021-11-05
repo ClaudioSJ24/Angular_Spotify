@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class SideBarComponent implements OnInit {
 
-  
+
   mainMenu: {
     defaultOptions: Array<any>, accessLink: Array<any>
   } = { defaultOptions: [], accessLink: [] }
@@ -22,12 +22,12 @@ export class SideBarComponent implements OnInit {
       {
         name: 'Home',
         icon: 'uil uil-estate',
-        router: ['/', 'auth']
+        router: ['/']
       },
       {
         name: 'Buscar',
         icon: 'uil uil-search',
-        router: ['/', 'history']
+        router: ['/', 'history']//indica la ruta a ingredar al hacer clic en las opciones del sidebar
       },
       {
         name: 'Tu biblioteca',
@@ -71,7 +71,7 @@ export class SideBarComponent implements OnInit {
 
   goTo($event: any): void {
     this.router.navigate(['/', 'favorites'], {
-      queryParams: {
+      queryParams: {//indica parametros en la url
         key1: 'value1',
         key2: 'value2',
         key3: 'value3'
@@ -79,6 +79,6 @@ export class SideBarComponent implements OnInit {
     })
     console.log($event)
   }
-  
+
 
 }

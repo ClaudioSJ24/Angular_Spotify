@@ -8,6 +8,8 @@ import { SectionGenericComponent } from './components/section-generic/section-ge
 import { RouterModule } from '@angular/router';
 import { PlayListHeaderComponent } from './components/play-list-header/play-list-header.component';
 import { PlayListBodyComponent } from './components/play-list-body/play-list-body.component';
+import { OrderListPipe } from './pipe/order-list.pipe';
+
 
 
 
@@ -23,11 +25,15 @@ import { PlayListBodyComponent } from './components/play-list-body/play-list-bod
     CardPlayerComponent,
     SectionGenericComponent,
     PlayListHeaderComponent,
-    PlayListBodyComponent
+    PlayListBodyComponent,
+    OrderListPipe
+
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule//Al importar esta propiedad todos los componentes exportados
+    //en este modulo ya pueden utilizar las directivas de navegacion mediante rutas
+    //desde los archivos components.html con la directiva [routerLink]
   ],
   //Permite compartir o exportar los componentes que tiene en su interior en el apartado de declarations con otros
   //componestes del proyecto
@@ -38,8 +44,10 @@ import { PlayListBodyComponent } from './components/play-list-body/play-list-bod
     CardPlayerComponent,
     SectionGenericComponent,
     PlayListHeaderComponent,
-    PlayListBodyComponent
-  ],
-  
+    PlayListBodyComponent,
+    OrderListPipe
+
+  ]
+
 })
 export class SharedModule { }

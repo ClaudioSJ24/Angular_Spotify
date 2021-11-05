@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from '@modules/home/pages/home-page/home-page.component';
-import { TracksPageComponent } from '@modules/tracks/tracks-page/tracks-page.component';
+
 
 /**
  * routing principal, (padre) de todas las demas modulos a mostrar al usuario
@@ -24,7 +24,7 @@ const routes: Routes = [
      */
 
   }
-  
+
 ];
 
 @NgModule({
