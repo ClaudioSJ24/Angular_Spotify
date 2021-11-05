@@ -6,7 +6,7 @@ import { HomePageComponent } from '@modules/home/pages/home-page/home-page.compo
 /**
  * routing principal, (padre) de todas las demas modulos a mostrar al usuario
  */
-const routes: Routes = [
+const routes: Routes = [//todo router-outlet(padre)
 
 
   {
