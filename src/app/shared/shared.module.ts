@@ -11,6 +11,8 @@ import { PlayListBodyComponent } from './components/play-list-body/play-list-bod
 import { OrderListPipe } from './pipe/order-list.pipe';
 import { ImgBrokenDirective } from './directivas/img-broken.directive';
 
+import { TestCComponent } from './components/test-c/test-c.component';
+
 
 
 
@@ -28,7 +30,8 @@ import { ImgBrokenDirective } from './directivas/img-broken.directive';
     PlayListHeaderComponent,
     PlayListBodyComponent,
     OrderListPipe,
-    ImgBrokenDirective
+    ImgBrokenDirective,
+    TestCComponent
 
   ],
   imports: [
@@ -48,7 +51,8 @@ import { ImgBrokenDirective } from './directivas/img-broken.directive';
     PlayListHeaderComponent,
     PlayListBodyComponent,
     OrderListPipe,
-    ImgBrokenDirective
+    ImgBrokenDirective,
+    TestCComponent
 
   ]
 

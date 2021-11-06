@@ -22,7 +22,7 @@ export class SideBarComponent implements OnInit {
       {
         name: 'Home',
         icon: 'uil uil-estate',
-        router: ['/']
+        router: ['/', 'auth']
       },
       {
         name: 'Buscar',
@@ -69,7 +69,9 @@ export class SideBarComponent implements OnInit {
 
   }
 
-  goTo($event: any): void {
+ /**
+  *
+  * goTo($event: any): void {
     this.router.navigate(['/', 'favorites'], {
       queryParams: {//indica parametros en la url
         key1: 'value1',
@@ -77,8 +79,8 @@ export class SideBarComponent implements OnInit {
         key3: 'value3'
       }
     })
-    console.log($event)
-  }
+    console.log($event)*/
+  
 
 
 }
