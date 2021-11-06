@@ -1,0 +1,9 @@
+<div class="tracks-page">
+  <!--Apartado de seccion generica, la propiedad title ""-> indica el nombre de una variable
+    y ''-> indica que es un string y proviene del archivo section-generic.component.ts y se puede utilizar
+  en app-section-generic por la propiedad @Input -->
+  <app-section-generic [dataTracks]="tracksSmall" [mode] = "'small'" [title] = "'La mejor musica'"></app-section-generic>
+  <!--Seccion de card-player-->
+  <app-section-generic [dataTracks]="tracksBig" [mode] = "'big'" [title] = "'Musica electronica'"></app-section-generic>
+
+</div>

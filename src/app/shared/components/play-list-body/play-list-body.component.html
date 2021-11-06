@@ -1,0 +1,45 @@
+<div class="play-list-body">
+  <ul class="play-list-table-header">
+      <!--(click)="changeSort('name') nos permite ordenar los elementos del objeto tracks
+      de forma ascendente o descendente con un clisk en la propiedad nombre o album-->
+      <li (click)="changeSort('name')">Nombre ❤</li>
+      <li (click)="changeSort('album')">álbum 🆗</li>
+      <li>fecha incorporación 🍌😁</li>
+      <li><i class="uil uil-clock-eight"></i></li>
+  </ul>
+  <!--El pipe orderList: 'name': 'desc'" ordena de manera descendente los elementos de tracks mediante el nombre-->
+  <!--El pipe orderList: 'name': 'asc'" ordena de manera escendente los elementos de tracks mediante el nombre-->
+  <ul class="play-list-rows" *ngFor="let track of tracks | orderList: optionSort.property: optionSort.order" >
+      <li class="track-name">
+        <!--la directiva ngTemplateOutlet hace referencia a un alias (ngtemplate)que se renderizara el posteriormete
+        y context es una palabra recervada que en su interior contienen un objeto-->
+          <ng-container *ngTemplateOutlet="coverSection;context:{propiedad:track}"></ng-container>
+      </li>
+      <li class="track-name-opacity">
+          {{track.album}}
+      </li>
+      <li class="track-name-opacity">
+          {{track.album}}
+      </li>
+      <li class="track-name-opacity">
+          {{track.album }}
+      </li>
+
+  </ul>
+</div>
+
+<!--template del cover
+let es u n prefijo que asigna a la variable track la propiedad
+que proviene del :contexto del ngTemplateOutlet para poder
+utilizar las propiedades del objeto mediante la variable track como sea nesesario-->
+<ng-template #coverSection let-track="propiedad">
+
+  <div class="cover-section">
+      <img appImgBroken class="cover-track" [src]="track.cover" [alt]="track.name">
+      <div class="cover-info">
+          <div class="name-track">{{track.name}}</div>
+          <div class="name-track-details">{{track.artist.name}}</div>
+      </div>
+  </div>
+
+</ng-template>
