@@ -20,26 +20,35 @@ export class TracksPageComponent implements OnInit , OnDestroy{
 
   ngOnInit(): void {
 
+    this.showTrackSmall()
+    this.showTracksBig()
+
+  }
+
+  ngOnDestroy(): void {
+
+  }
+////////////Formas de consumir un API mediante un servicio de track.service.ts//////////////
+  //1.- Método implementado como promesa
+ async showTrackSmall():Promise<any> {
     //Obtiene un objeto que contiene un array de canciones, para poder entrar al objeto y obtener
     //solo el array de caciones es nesesario modificar el metodo desde el servicio
-    this.trackservice.getAllTracks$()
-      .subscribe((response : TrackModel[]) => {
-        console.log('Datos de API', response)
-        this.tracksSmall = response
+    this.tracksSmall= await this.trackservice.getAllTracks$()
+                    .toPromise()
 
-      })
 
+  }
+  //2.- Método implementado como suscripción
+  showTracksBig():void {
     this.trackservice.getAllTracksFilters$()
       .subscribe((
           response: TrackModel[]
         )=>{
           this.tracksBig = response
+        }, error => {
+          console.log("Error de conexión")
         }
       )
-  }
-
-  ngOnDestroy(): void {
-
   }
 }
 
