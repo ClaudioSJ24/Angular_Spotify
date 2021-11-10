@@ -1,35 +1,53 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import  {map, mergeMap} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { TrackModel } from '@core/models/tracks.model';
-
-import { Observable, of } from 'rxjs';
-import * as dataRaw from '../../../data/tracks.json'
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrackService {
 
-  //Un observable siempre tiene que tener un subcribe para poder acceder a los datos que estan contenidos en el
+  //Variable de solo lectura que permite accedera a las constantes declaradas en el archivo environment.ts
+  private readonly URL = environment.api
 
-  dataTracksSmall$: Observable<TrackModel[]> = of([])//Forma de iniciar un observable
-  dataTracksBig$: Observable<any> = of ([])
+  constructor(private httpClient: HttpClient) {
 
-  constructor() {
-    const {data}:any = (dataRaw as any).default
-    this.dataTracksSmall$ = of(data)//asignando datos a un obsevable
-    this.dataTracksBig$ = new Observable((observer) => {
-      //Canción de ejemplo para agregar a dataTracksSmall
-      const trackExample: TrackModel = {
-        _id: 10,
-        name: 'Banda',
-        album: 'La arrolladora',
-        url: '',
-        cover: ''
-      }
-      //agregar musica en despues de tres segundos
-      setTimeout(() =>{
-        observer.next([trackExample])
-      }, 3000)
+  }
+
+  private skipById(listTracks: TrackModel[], id: number):Promise<TrackModel[]>{
+    return new Promise ((resolve, reject) =>{
+      const listTmp = listTracks.filter(a => a._id != id)
+      resolve(listTmp)
     })
+  }
+
+  //Método que obtiene las canciones desde el API utilizada
+  getAllTracks$(): Observable<any>{
+    return this.httpClient.get(`${this.URL}/tracks`)
+    .pipe(//pipe Obtiene el objeto de la API y con map se obtienen las propiedades del objeto(el array)
+      map((dataRaw: any) =>{//dataRaw es el objeto que contiene el array de canciones
+        return dataRaw.data //data el el array de canciones
+
+      })
+    )
+
+  }
+
+  getAllTracksFilters$(): Observable<any>{
+    return this.httpClient.get(`${this.URL}/tracks`)
+    .pipe(
+      /**
+       * map(({ data }: any) =>{//Utilizando destructuracion de tipeScript
+        return data.reverse()//Array invertido
+      }),
+       */
+      mergeMap(({data}: any) => this.skipById(data, 1)
+        //mostrar canciones exepto la cancion con id 2
+      )
+    )
+
   }
 }

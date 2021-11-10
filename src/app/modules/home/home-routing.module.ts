@@ -27,8 +27,12 @@ const routes: Routes = [
     path:'favorites',
     loadChildren: () => import('@modules/Favorites/favorites.module').then(m => m.FavoritesModule)
   },
+  {
+    path: '**',//Si la ruta no existe ir a /tracks
+    redirectTo: '/tracks'
+  }
 
-  
+
 
 ];
 

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //Ruta de API en la que se encuentran alojadas las canciones  utilizar
+  api: 'http://localhost:3002/api/1.0'
 };
 
 /*

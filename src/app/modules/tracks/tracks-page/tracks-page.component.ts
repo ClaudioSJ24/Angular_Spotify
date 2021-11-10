@@ -19,36 +19,27 @@ export class TracksPageComponent implements OnInit , OnDestroy{
   constructor(private trackservice: TrackService) { }
 
   ngOnInit(): void {
-    /**
-     *
-     * Acceder a al informacion de dataRaw de una mamera mas limpia
-    const { data }: any = (dataRaw as any).default
 
-    this.mockTracksList = data
-
-  }
-     * */
-    const observable1$ = this.trackservice.dataTracksSmall$
-      //Con suscribe se obtienen los datos que contiene el servicio de trackservice en la variable de tipo observable dataTrackSmall
-      .subscribe(response => {
-        //Con variable response se asignan los valores contenidos en la variable observable1 a las variables trackSmall y trackBig para mostrar su contenido
+    //Obtiene un objeto que contiene un array de canciones, para poder entrar al objeto y obtener
+    //solo el array de caciones es nesesario modificar el metodo desde el servicio
+    this.trackservice.getAllTracks$()
+      .subscribe((response : TrackModel[]) => {
+        console.log('Datos de API', response)
         this.tracksSmall = response
-        this.tracksBig = response
-        console.log('obteniendo datos atraves de una suscripcion', response);
+
       })
 
-      const observable2$ = this.trackservice.dataTracksBig$
-      .subscribe(response => {
-        //Agregando nueva musica a trackSmall, ... this.tracksSmall ->A lo que ya tienes, ... response --> agregale esta musica
-        this.tracksSmall = [... this.tracksSmall, ... response]
-        console.log('Agregando cancion random a trackSmall', response)
-      })
-
-      this.listObservers$ = [observable1$, observable2$]
+    this.trackservice.getAllTracksFilters$()
+      .subscribe((
+          response: TrackModel[]
+        )=>{
+          this.tracksBig = response
+        }
+      )
   }
 
   ngOnDestroy(): void {
-    this.listObservers$.forEach(unsubscribe => unsubscribe.unsubscribe())
+
   }
 }
 

@@ -7,6 +7,7 @@ import { SharedModule } from '@shared/shared.module';
 
 
 
+
 @NgModule({
   declarations: [
     TracksPageComponent
@@ -14,7 +15,8 @@ import { SharedModule } from '@shared/shared.module';
   imports: [
     CommonModule,
     TracksRoutingModule,
-    SharedModule
+    SharedModule,
+    
   ]
 })
 export class TracksModule { }
