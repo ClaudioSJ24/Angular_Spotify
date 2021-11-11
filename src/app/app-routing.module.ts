@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SessionGuard } from '@core/guards/session.guard';
 import { HomePageComponent } from '@modules/home/pages/home-page/home-page.component';
 
 
@@ -23,7 +24,9 @@ const routes: Routes = [//todo router-outlet(padre)
      * el que se define las siguientes rutas de la aplicacion
      *
      */
-    canActivate:[]
+    canActivate:[SessionGuard]/**Esta propiedad se puede utilizar al instalar los guardianes de rutas con el comando
+     ng g guard core/guards/Session para poder asi tener un mejor control de quien entra al sitio
+     SessionGuard es un vigilante de rutas que permite el acceso a todos al sitio, es nesesario configurarlo de forma adecuada*/
 
   }
 
