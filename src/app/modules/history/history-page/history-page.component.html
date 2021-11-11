@@ -1,4 +1,6 @@
 <div class="history-page">
   <app-search (callBackData)="receibeData($event)"></app-search>
-  <app-play-list-body [tracks]="listSearch"></app-play-list-body>
+  <!--async permite que no se sobrecarge la aplicacion de peticiones en una red lenta,
+  es decir, elimina todas las peticiones realizadas y da prioridad a la mas reciente-->
+  <app-play-list-body [tracks]="listSearch$ | async"></app-play-list-body>
 </div>
