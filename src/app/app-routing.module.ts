@@ -16,12 +16,14 @@ const routes: Routes = [//todo router-outlet(padre)
   {
     path: '',//todo:http://localhost:4200/home es decir la ruta por defecto
     component: HomePageComponent,//componente a inicializar mediante <router-outlet></router-outlet> contenido en archivo app.component.html
-    loadChildren: ()=> import (`./modules/home/home.module`).then(m=>m.HomeModule)
+    loadChildren: ()=> import (`./modules/home/home.module`).then(m=>m.HomeModule),
     /**
      * import (`./modules/home/home.module`) ruta del modulo a mostrar al usuario, que mediante
      * una promesa .then se dirige a HomeModule, es en este modulo en su respectivo archivo de home.routing.module en donde se
      * el que se define las siguientes rutas de la aplicacion
+     *
      */
+    canActivate:[]
 
   }
 

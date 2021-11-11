@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http'
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -15,7 +16,11 @@ import {HttpClientModule} from '@angular/common/http'
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [//Nos permite utilizar cookies para el inicio de sesion mediante tokens con el comando:
+    //npm install ngx-cookie-service --save de pagina https://www.npmjs.com/package/ngx-cookie-service
+
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

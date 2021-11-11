@@ -45,8 +45,6 @@ export class TracksPageComponent implements OnInit , OnDestroy{
           response: TrackModel[]
         )=>{
           this.tracksBig = response
-        }, error => {
-          console.log("Error de conexión")
         }
       )
   }
