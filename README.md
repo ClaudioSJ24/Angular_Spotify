@@ -1,10 +1,14 @@
-# Spotify
+# Introducción
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
+Este proyecto fue creado utilizando [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
+Implementando una [API](https://github.com/leifermendez/node-api-tracks.git
+) de forma local. Para poder asi crear la estructura y comportamiento básico de al aplicación de Spotify.
 
-## Development server
+## Descripción
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+La ventana inicial de la aplicación es la de un login, para la authentificacion de los usuarios.
+![Auth](https://drive.google.com/file/d/1q75WqUeSk0q6gjE0UzE0QJWhKXaE-QHx/view?usp=sharing)
+
 
 ## Code scaffolding
 
