@@ -11,27 +11,17 @@ import { Subscription } from 'rxjs';//Programacion reactiva
 export class MediaPlayerComponent implements OnInit, OnDestroy {
 
 
-  mockCover: TrackModel = {
-    name: 'name',
-    album: 'album',
-    cover: 'https://i.scdn.co/image/ab67616d0000b27345ca41b0d2352242c7c9d4bc',
-    url: 'url',
-    _id: 1,
-  }
+  //mockCover!: TrackModel
 
   listObserverT: Array<Subscription> = []
   //Lan inyeccion de una dependencia de un servicio se realiza
   //mediante el constructor
-  constructor(private multimediaService: MultimediaService) { }
+  constructor(public multimediaService: MultimediaService) { }
 
   ngOnInit(): void {
-    const observer1: Subscription = this.multimediaService.callback.subscribe(
-
-      (response:TrackModel)=>{
-        console.log('Recibiendo cancion.....',response);
-      }
-    )
-    this.listObserverT = [observer1]
+   // this.multimediaService.trackInfo$.subscribe(res =>{
+     // console.log('Debo reproducir la cancion', res)
+    //})
 
   }
 
@@ -39,7 +29,7 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
   //primero que se ejecuta y tambien el ultimo antes de destruiren componente en el ciclo de vida
 
   ngOnDestroy(): void{
-    
+
     this.listObserverT.forEach(aUnsuscribe => aUnsuscribe.unsubscribe());
     console.log('Ejecutando metodo ngOnDestroy');
 

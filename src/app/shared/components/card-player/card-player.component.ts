@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
 import { MultimediaService } from '@shared/services/multimedia.service';
+//import { MultimediaService } from '@shared/services/multimedia.service';
 
 @Component({
   selector: 'app-card-player',
@@ -24,7 +25,9 @@ export class CardPlayerComponent implements OnInit {
    // console.log('Enviando cancion al reproductor....'+track)
     //Se utiliza un metodo emit por que se emite una propiedad de la variable
     //callback de multimedia.services.ts
-    this.multimediaService.callback.emit(track)
+    //this.multimediaService.callback.emit(track)
+
+    this.multimediaService.trackInfo$.next(track)//envia informacion de la cancion
 
   }
 

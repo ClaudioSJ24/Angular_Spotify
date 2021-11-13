@@ -20,9 +20,9 @@
 <!-- ZONE TEMPLATES -->
 
 <ng-template #artistZone>
-  <div class="artist-inside" *ngIf="true">
+  <div class="artist-inside" *ngIf="multimediaService.trackInfo$ | async as mockCover">
 
-      <img [src]="'https://i.scdn.co/image/ab67616d0000b27345ca41b0d2352242c7c9d4bc'" alt="" class="cover">
+      <img [src]="mockCover.cover" alt="" class="cover">
       <div class="track-info">
           <h3 class="track-title">{{mockCover.name}}</h3>
           <h5 class="track-title sub-title">{{mockCover.album}}</h5>
