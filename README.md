@@ -7,7 +7,7 @@ Implementando una [API](https://github.com/leifermendez/node-api-tracks.git
 ## Descripción
 
 La ventana inicial de la aplicación es la de un login, para la authentificacion de los usuarios.
-![Auth](https://drive.google.com/file/d/1q75WqUeSk0q6gjE0UzE0QJWhKXaE-QHx/view?usp=sharing)
+![auth](https://user-images.githubusercontent.com/74396682/141653986-99686ffd-ed3e-4cd8-9f8d-1249fa213f55.PNG)
 
 
 ## Code scaffolding
